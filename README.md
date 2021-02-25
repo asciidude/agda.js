@@ -8,3 +8,5 @@ a discord library, still in development
 ```js
 still in development
 ```
+
+**sponsored by [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
