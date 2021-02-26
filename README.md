@@ -12,7 +12,4 @@ const ws = new WebSocketManager();
 ws.login('token');
 ```
 
-# TODO
-- fix `Uncaught (in promise) ConnectionReset: Socket has already been closed`
-
 **sponsored by [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
