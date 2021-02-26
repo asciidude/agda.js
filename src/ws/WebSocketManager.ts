@@ -1,4 +1,4 @@
-import * as websockets from "https://deno.land/std@0.88.0/ws/mod.ts";
+import { WebSocket } from "https://deno.land/x/websocket@v0.0.6/mod.ts";
 import { Heartbeat, Identify } from '../constants/Payloads.ts';
 import { Constants, OPCode } from '../constants/Constants.ts';
 
@@ -19,12 +19,12 @@ export default class WebSocketManager {
             if(!this.ws) return;
 
             // Notify the user they connected to the Discord Gateway
-            this.ws.onopen = (() => console.log("Connected to Discord Gateway"));
+            this.ws.on('open', () => console.log("Connected to Discord Gateway"));
 
-            this.ws.onmessage = (async(message) => {
+            this.ws.on('message', (async(message: any) => {
                 // Get payload data
-                const payload = JSON.parse(message.data);
-                //console.log(payload);
+                const payload = JSON.parse(message.toString());
+                console.log(payload);
 
                 const { t: event, s, op, d } = payload;
                 const { heartbeatInterval } = d;
@@ -37,7 +37,7 @@ export default class WebSocketManager {
                         await this.identify(token);
                         break;
                 }
-            });
+            }));
         } catch (e) {
             return e;
         }
@@ -45,13 +45,13 @@ export default class WebSocketManager {
 
     heartbeat(ms: number) {
         return setInterval(async() => {
-            if(!this.ws) return; if(this.ws.readyState !== 1) return;
+            if(!this.ws) return;
             await this.ws.send(JSON.stringify(Heartbeat));
         }, ms);
     }
 
     async identify(token: string) {
-        if(!this.ws) return; if(this.ws.readyState !== 1) return;
+        if(!this.ws) return;
         Identify.d.token = token;
         return this.ws.send(JSON.stringify(Identify));
     }
