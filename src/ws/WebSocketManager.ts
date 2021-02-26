@@ -24,7 +24,7 @@ export default class WebSocketManager {
             this.ws.on('message', (async(message: any) => {
                 // Get payload data
                 const payload = JSON.parse(message.toString());
-                //console.log(payload);
+                console.log(payload);
 
                 const { t: event, s, op, d } = payload;
                 const { heartbeatInterval } = d;
