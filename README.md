@@ -6,7 +6,13 @@ a discord library, still in development
 
 # example
 ```js
-still in development
+import WebSocketManager from './src/ws/WebSocketManager.ts'
+const ws = new WebSocketManager();
+
+ws.login('token')
 ```
+
+# TODO
+- fix `readyState`
 
 **sponsored by [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
