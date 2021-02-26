@@ -1,15 +1,15 @@
 # agda.js
-a discord library, still in development
+Discord TypeScript Libary, Still In Development!
 
 # docs
 [ReadTheDocs Link - Not yet avaliable](https://www.404.com)
 
-# example
+# Login Example:
 ```js
 import WebSocketManager from './src/ws/WebSocketManager.ts'
-const ws = new WebSocketManager();
+const client = new WebSocketManager();
 
-ws.login('token');
+client.login('token');
 ```
 
-**sponsored by [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
+**Sponsored By: [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
