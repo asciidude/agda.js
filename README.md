@@ -1,4 +1,4 @@
-# agda.js
+# agda.ts
 a discord library, still in development
 
 # docs
