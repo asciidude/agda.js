@@ -9,10 +9,10 @@ a discord library, still in development
 import WebSocketManager from './src/ws/WebSocketManager.ts'
 const ws = new WebSocketManager();
 
-ws.login('token')
+ws.login('token');
 ```
 
 # TODO
-- fix `readyState`
+- fix `Uncaught (in promise) ConnectionReset: Socket has already been closed`
 
 **sponsored by [Hackers Universe](https://discord.gg/DTBzVHqAQh)**
