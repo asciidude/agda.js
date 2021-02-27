@@ -7,7 +7,7 @@ a discord library, still in development<br>
 
 # example
 ```js
-import WebSocketManager from './src/ws/WebSocketManager.ts'
+const { WebSocketManager } = require('./src/ws/WebSocketManager.js');
 const ws = new WebSocketManager();
 
 ws.login('token');
