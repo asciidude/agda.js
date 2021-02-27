@@ -1,5 +1,6 @@
-# agda.ts
-a discord library, still in development
+# agda.js
+a discord library, still in development<br>
+**PORTING OVER TO NODE.JS**
 
 # docs
 [ReadTheDocs Link - Not yet avaliable](https://www.404.com)
