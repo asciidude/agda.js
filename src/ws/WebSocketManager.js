@@ -14,7 +14,7 @@ class WebSocketManager {
         try {
             this.socket.on('message', async message => {
                 const payload = JSON.parse(message.toString());
-                console.log(payload);
+                //console.log(payload);
                 
                 const { t: event, s, op, d } = payload;
                 
