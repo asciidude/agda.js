@@ -1,34 +1,30 @@
-//import { connectWebSocket, WebSocket } from "https://deno.land/std@0.68.0/ws/mod.ts";
-//import { Heartbeat, Identify } from '../constants/Payloads.ts';
-//import { Constants, OPCode } from '../constants/Constants.ts';
-//import { Payload } from '../interfaces/Payloads.ts';
-//import Client from '../client/Client.ts';
-
 const WebSocket = require('ws');
 const { Constants, OPCode } = require('../constants/Constants');
 const { Heartbeat, Identify } = require('../constants/Payloads.js');
 const { Client } = require('../client/Client.js');
 
 class WebSocketManager {
-    socket;
     interval = 0;
-    socket = new WebSocket(Constants.GATEWAY);
+    
+    constructor() {
+        this.socket = new WebSocket(Constants.GATEWAY);
+    }
 
     async login(token) {
         try {
-            this.socket.on('message', async(message) => {
+            this.socket.on('message', async message => {
                 const payload = JSON.parse(message.toString());
                 console.log(payload);
                 
-                const { t: event, op } = payload;
-
+                const { t: event, s, op, d } = payload;
+                
                 switch(op) {
                     case OPCode.HELLO:
                         console.log("An event was triggered");
                         break;
 
                     case OPCode.HELLO:
-                        const { heartbeatInterval } = payload.d;
+                        const { heartbeatInterval } = d;
                         this.interval = this.heartbeat(heartbeatInterval);
                         await this.identify(token);
                         break;
@@ -37,7 +33,7 @@ class WebSocketManager {
                         break;
                 }
 
-                if(event) {
+                if (event) {
                     console.log(event);
                 }
             });
@@ -58,5 +54,6 @@ class WebSocketManager {
         return this.socket.send(JSON.stringify(Identify))
     }
 }
+
 
 module.exports.WebSocketManager = WebSocketManager;
