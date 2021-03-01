@@ -12,7 +12,7 @@ class WebSocketManager {
 
     async login(token) {
         try {
-            this.socket.on('message', async message => {
+            this.socket.on("message", async function incoming(message) {
                 const payload = JSON.parse(message.toString());
                 //console.log(payload);
                 
