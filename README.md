@@ -3,9 +3,6 @@
 # agda.js v1
 a discord library, still in development
 
-# docs
-[adga.js docs](https://agdajs.readthedocs.io/en/latest/)
-
 # example (currently outdated in rw1)
 ```js
 import { Client } from './src/client/Client.js';
