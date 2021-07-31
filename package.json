@@ -1,11 +1,8 @@
 {
   "name": "adga.js",
   "version": "1.0.0",
-  "description": "A Discord library made (originally) in TS but ported over to JS",
-  "main": "index.js",
-  "scripts": {
-    "tsc": "tsc"
-  },
+  "description": "A Discord library made in JavaScript",
+  "main": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pxpcandy/agda.js.git"
@@ -22,13 +19,7 @@
   },
   "homepage": "https://github.com/pxpcandy/agda.js#readme",
   "dependencies": {
-    "better-web-sockets": "^1.0.2",
-    "event-emitter": "^0.3.5",
-    "ws": "^7.5.1",
-    "zlib-sync": "^0.1.7"
+    "ws": "^7.5.3"
   },
-  "type": "module",
-  "devDependencies": {
-    "typescript": "^4.3.5"
-  }
+  "type": "module"
 }
