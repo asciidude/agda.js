@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pxpcandy/agda.js#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "events": "^3.3.0",
     "node-fetch": "^2.6.1",
     "ws": "^7.5.3"
