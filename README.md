@@ -3,7 +3,7 @@
 # agda.js v1
 a discord library, still in development
 
-# example (currently outdated in rw1)
+# example (currently outdated in v1)
 ```js
 import { Client } from './src/client/Client.js';
 const client = new Client();
