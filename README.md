@@ -1,25 +1,25 @@
-<h1 align="center">Adga.js</h1>
+<h1 align="center">Agda.js</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/noticablepig/adga.js?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/noticablepig/agda.js?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/noticablepig/adga.js?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/noticablepig/agda.js?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/noticablepig/adga.js?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/noticablepig/agda.js?color=56BEB8">
 
-  <!-- <img alt="License" src="https://img.shields.io/github/license/noticablepig/adga.js?color=56BEB8"> -->
+  <!-- <img alt="License" src="https://img.shields.io/github/license/noticablepig/agda.js?color=56BEB8"> -->
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/noticablepig/adga.js?color=56BEB8" /> -->
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/noticablepig/agda.js?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/noticablepig/adga.js?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/noticablepig/agda.js?color=56BEB8" /> -->
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/noticablepig/adga.js?color=56BEB8" /> -->
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/noticablepig/agda.js?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
 
 <h4 align="center"> 
-	🚧  Adga.js 🚀 Under construction...  🚧
+	🚧  Agda.js 🚀 Under construction...  🚧
 </h4> 
 
 <hr>
@@ -56,10 +56,10 @@ The following tools were used in this project:
 
 ```bash
 # Clone this project
-$ git clone https://github.com/noticablepig/adga.js
+$ git clone https://github.com/noticablepig/agda.js
 
 # Access
-$ cd adga.js
+$ cd agda.js
 
 # Install dependencies & run
 $ node index.js
