@@ -18,7 +18,7 @@
 
 <!-- Status -->
 
-<<h4 align="center"> 
+<h4 align="center"> 
 	🚧  Adga.js 🚀 Under construction...  🚧
 </h4> 
 
