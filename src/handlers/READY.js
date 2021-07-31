@@ -1,5 +1,4 @@
 import ClientUser from "../client/ClientUser.js";
-import { Identify } from "../constants/Payloads.js";
 
 export default function(client, payload) {
     client.user = new ClientUser(
