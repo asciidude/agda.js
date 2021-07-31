@@ -1,4 +1,5 @@
-![Docs Build](https://readthedocs.org/projects/agdajs/badge/?version=latest) ![Main Language](https://img.shields.io/github/languages/top/pxpcandy/agda.js)
+#![Docs Build](https://readthedocs.org/projects/agdajs/badge/?version=latest)
+![Main Language](https://img.shields.io/github/languages/top/pxpcandy/agda.js)
 
 # agda.js v1
 a discord library, still in development
