@@ -3,49 +3,65 @@ import { Gateway } from '../constants/Constants.js';
 import { OPCodes } from '../constants/OPCodes.js';
 import { Heartbeat, Identify } from '../constants/Payloads.js';
 
-export default class WebSocketManager {
-    constructor() {
-        this.options = {
-            debugMode: true,
-            debugMode_payloads: true,
-            debugMode_connection: true,
-            debugMode_heartbeats: true,
-            useOS: 'linux',
-            intents: 513,
-            gateway_version: '9'
-        };
+export let options = {
+    debugMode: false,
+    debugMode_payloads: true,
+    debugMode_connection: true,
+    debugMode_heartbeats: true,
+    debugMode_events: true,
+    useOS: 'linux',
+    intents: 513,
+    gateway_version: '9'
+};
 
-        Gateway.VERSION = this.options.gateway_version;
+export default class WebSocketManager {
+    constructor(client, token) {
+        Gateway.VERSION = options.gateway_version;
         this.wsc = new WebSocket(Gateway.URL);
+        this.client = client;
     }
 
     async connect(token) {
         try {
             this.wsc.on('message', async (data) => {
                 let payload = JSON.parse(data.toString());
-                if(this.options.debugMode && this.options.debugMode_payloads) {
+                let { t: event, op, d } = payload;
+
+                if(options.debugMode && options.debugMode_payloads) {
                     console.warn('--- DEBUG: PAYLOAD RECIEVED ---');
-                    console.warn(payload)
+                    console.warn(payload);
                 }
 
                 /* https://discord.com/developers/docs/topics/gateway#payloads-gateway-payload-structure */
-                switch(payload.op) {
+                switch(op) {
                     case OPCodes.DISPATCH:
-                        if(this.options.debugMode && this.options.debugMode_payloads) {
-                            console.warn('--- DEBUG: EVENT TRIGGERED ---');
-                            console.warn(payload)
+                        if(options.debugMode && options.debugMode_payloads) {
+                            console.warn('--- DEBUG: EVENT PAYLOAD RECIEVED ---');
+                            console.warn(payload);
                         }
                         break;
                     case OPCodes.HELLO:
-                        let { t: event, s, op, d } = payload;
                         this.sendHeartbeat(d.heartbeat_interval, { t: OPCodes.IDENTIFY, d: null });
                         await this.identify(token);
                     case OPCodes.HEARTBEAT_ACK:
-                        if(this.options.debugMode && this.options.debugMode_payloads) {
+                        if(options.debugMode && options.debugMode_payloads) {
                             console.warn('--- DEBUG: HEARTBEAT ACKNOWLEDGED ---');
-                            console.warn(payload)
+                            console.warn(payload);
                         }
                         break;
+                }
+
+                if(event) {
+                    if(options.debugMode && options.debugMode_events) {
+                        console.warn('--- DEBUG: EVENT TRIGGERED ---');
+                        console.warn(event);
+                    }
+                    
+                    try {
+                        await import(`../handlers/${event}.js`).then(module => module.default(this.client, payload));
+                    } catch(error) {
+                        throw Error(`Report this to the developer if this happens multiple times.\n${error}`)
+                    }
                 }
             });
         } catch(error) {
@@ -55,7 +71,7 @@ export default class WebSocketManager {
 
     async sendHeartbeat(interval_ms, data) {
         setInterval(async () => {
-            if(this.options.debugMode && this.options.debugMode_heartbeats) {
+            if(options.debugMode && options.debugMode_heartbeats) {
                 console.log('--- DEBUG: HEARTBEAT SENT ---');
                 console.log(`Heartbeat sent with data ${JSON.stringify(data)}`);
             }
@@ -66,7 +82,7 @@ export default class WebSocketManager {
     async identify(token) {
         try {
             Identify.d.token = token;
-            Identify.d.intents = this.options.intents;
+            Identify.d.intents = options.intents;
             return this.wsc.send(JSON.stringify(Identify));
         } catch(error) {
             throw error;
