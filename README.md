@@ -48,7 +48,8 @@ Agda.js is a Discord API wrapper library for new and experienced developers of a
 The following tools were used in this project:
 
 > [Node.js](https://nodejs.org/en/)\
-> [WS](https://www.npmjs.com/package/ws)
+> [WS](https://www.npmjs.com/package/ws)\
+> [Promise Queue](https://www.npmjs.com/package/promise-queue)
 
 ## :checkered_flag: Starting ##
 
