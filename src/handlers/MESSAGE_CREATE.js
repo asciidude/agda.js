@@ -18,7 +18,8 @@ export default function(client, payload) {
         payload.d.content,
         payload.d.components,
         payload.d.channel_id,
-        payload.d.author
+        payload.d.author,
+        client
     );
 
     client.emit('message', message);

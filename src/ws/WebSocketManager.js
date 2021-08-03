@@ -5,10 +5,11 @@ import { Heartbeat, Identify } from '../constants/Payloads.js';
 
 export let options = {
     debugMode: false,
-    debugMode_payloads: true,
-    debugMode_connection: true,
-    debugMode_heartbeats: true,
-    debugMode_events: true,
+    debugMode_payloads: false,
+    debugMode_connection: false,
+    debugMode_heartbeats: false,
+    debugMode_events: false,
+    
     useOS: 'linux',
     intents: 513,
     gateway_version: '9'
@@ -60,7 +61,7 @@ export default class WebSocketManager {
                     try {
                         await import(`../handlers/${event}.js`).then(module => module.default(this.client, payload));
                     } catch(error) {
-                        throw Error(`Report this to the developer if this happens multiple times.\n${error}`)
+                        throw error;
                     }
                 }
             });

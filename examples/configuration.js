@@ -1,5 +1,6 @@
 import { options } from "../src/ws/WebSocketManager";
 
+/* All options for Debug Mode are disabled by default */
 options.debugMode = true; /* Enable or disbale "Debug Mode" */
 options.debugMode_connection = true; /* Log connection to the Discord Gateway */
 options.debugMode_events = true; /* Log event names */
