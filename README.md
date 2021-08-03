@@ -1,4 +1,4 @@
-<h1 align="center">Agda.js v3</h1>
+<h1 align="center">Agda.js v1.3.0</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/noticablepig/agda.js?color=56BEB8">
