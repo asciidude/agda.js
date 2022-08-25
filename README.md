@@ -64,7 +64,7 @@ $ cd agda.js
 $ node index.js
 ```
 
-Made with :heart: by <a href="https://github.com/noticablepig" target="_blank">noticablepig</a>
+Made with :heart: by <a href="https://github.com/asciidude" target="_blank">asciidude</a>
 
 &#xa0;
 
